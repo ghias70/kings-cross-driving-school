@@ -747,50 +747,65 @@ button {
 .review-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.35rem;
+    gap: 1.5rem;
+    align-items: stretch;
 }
 
 .review-card {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding: 1.65rem 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 18px;
+    padding: 1.85rem 1.7rem 1.75rem;
+    border: 0;
+    border-radius: 20px;
     background: var(--white);
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 14px 34px rgba(7, 24, 45, 0.08);
 }
 
 .review-card__stars {
+    display: flex;
+    align-items: center;
+    gap: 0.28rem;
     color: #f5b400;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
+}
+
+.review-card__stars svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: currentColor;
+    flex-shrink: 0;
 }
 
 .review-card blockquote {
-    margin: 1.05rem 0 0;
-    color: var(--text);
+    margin: 1.1rem 0 0;
+    padding: 0;
+    border: 0;
+    color: #5f728a;
     font-size: 1.02rem;
-    line-height: 1.7;
+    font-weight: 500;
+    line-height: 1.75;
     flex: 1;
 }
 
 .review-card footer {
-    margin-top: 1.35rem;
-    color: var(--heading);
-    font-weight: 800;
+    margin-top: 1.5rem;
+    padding-top: 0;
 }
 
 .review-card footer strong {
     display: block;
+    color: var(--heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
 }
 
 .review-card footer span {
     display: block;
-    margin-top: 0.25rem;
-    color: var(--muted);
-    font-size: 0.88rem;
-    font-weight: 600;
+    margin-top: 0.28rem;
+    color: #8a9bb0;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .section__intro--row {

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EnquiryController;
+use App\Http\Controllers\Admin\SessionController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
@@ -21,3 +25,21 @@ Route::get('/book/slots', [BookingController::class, 'slots'])->name('book.slots
 Route::post('/book', [BookingController::class, 'store'])->middleware('throttle:10,1')->name('book.store');
 Route::get('/booking/success', [BookingController::class, 'success'])->name('booking.success');
 Route::get('/booking/cancel/{token}', [BookingController::class, 'cancel'])->name('booking.cancel');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::middleware('guest')->group(function () {
+        Route::get('login', [SessionController::class, 'create'])->name('login');
+        Route::post('login', [SessionController::class, 'store'])->middleware('throttle:5,1');
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::post('logout', [SessionController::class, 'destroy'])->name('logout');
+        Route::get('/', DashboardController::class)->name('dashboard');
+        Route::get('bookings', [AdminBookingController::class, 'index'])->name('bookings.index');
+        Route::get('bookings/{booking}', [AdminBookingController::class, 'show'])->name('bookings.show');
+        Route::patch('bookings/{booking}', [AdminBookingController::class, 'update'])->name('bookings.update');
+        Route::get('enquiries', [EnquiryController::class, 'index'])->name('enquiries.index');
+        Route::get('enquiries/{enquiry}', [EnquiryController::class, 'show'])->name('enquiries.show');
+        Route::delete('enquiries/{enquiry}', [EnquiryController::class, 'destroy'])->name('enquiries.destroy');
+    });
+});

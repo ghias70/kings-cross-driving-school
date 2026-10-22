@@ -14,7 +14,7 @@
     <section class="section section--about">
         <div class="container about">
             <div class="about__media">
-                <img src="{{ asset('images/about-car-rear.jpg') }}" alt="King's Cross Driving School learner car">
+                <img src="{{ asset('images/about-car-rear.jpg') }}?v=2" alt="King's Cross Driving School black Toyota Yaris with L plates">
             </div>
             <div class="about__copy">
                 <p class="eyebrow eyebrow--navy">About King's Cross Driving School</p>

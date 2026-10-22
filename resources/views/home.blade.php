@@ -72,7 +72,7 @@
     <section class="section section--about" id="about">
         <div class="container about">
             <div class="about__media">
-                <img src="{{ asset('images/about-car-rear.jpg') }}" alt="King's Cross Driving School learner car">
+                <img src="{{ asset('images/about-car-rear.jpg') }}?v=2" alt="King's Cross Driving School black Toyota Yaris with L plates">
             </div>
             <div class="about__copy">
                 <p class="eyebrow eyebrow--navy">About King's Cross Driving School</p>
@@ -107,7 +107,11 @@
             <div class="review-grid">
                 @foreach (config('school.testimonials') as $review)
                     <article class="review-card">
-                        <div class="review-card__stars" aria-label="5 stars">★★★★★</div>
+                        <div class="review-card__stars" aria-label="5 stars">
+                            @for ($i = 0; $i < 5; $i++)
+                                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.5L10 14.9l-4.94 2.61.94-5.5-4-3.9 5.53-.8L10 1.5z"/></svg>
+                            @endfor
+                        </div>
                         <blockquote>“{{ $review['quote'] }}”</blockquote>
                         <footer>
                             <strong>{{ $review['name'] }}</strong>

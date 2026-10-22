@@ -13,5 +13,13 @@ class Enquiry extends Model
         'package',
         'postcode',
         'message',
+        'read_at',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'read_at' => 'datetime',
+        ];
+    }
 }
