@@ -12,9 +12,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/site.css') }}?v=26">
+    <link rel="stylesheet" href="{{ asset('css/site.css') }}?v=27">
 </head>
 <body>
+    <div id="page-loader" role="status" aria-live="polite" aria-label="Loading">
+        <div class="page-loader__brand" aria-hidden="true">
+            <span class="page-loader__badge">L</span>
+            <span class="page-loader__text">
+                <strong>King's Cross</strong>
+                <span>Driving School</span>
+            </span>
+        </div>
+        <span class="page-loader__ring" aria-hidden="true"></span>
+        <p class="page-loader__label">Loading…</p>
+    </div>
     <header class="site-header">
         <div class="container site-header__inner">
             <a class="brand" href="{{ route('home') }}">
@@ -106,6 +117,23 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function () {
+            var loader = document.getElementById('page-loader');
+            if (!loader) return;
+            var started = Date.now();
+            var hide = function () {
+                var wait = Math.max(0, 500 - (Date.now() - started));
+                setTimeout(function () { loader.classList.add('is-done'); }, wait);
+            };
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', hide);
+            } else {
+                hide();
+            }
+            setTimeout(function () { loader.classList.add('is-done'); }, 2500);
+        })();
+    </script>
     <script src="{{ asset('js/site.js') }}?v=3" defer></script>
 </body>
 </html>
