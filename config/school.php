@@ -28,8 +28,18 @@ return [
     'online_deposit_pence' => 1000,
 
     'postcodes' => [
-        'WC1', 'EC1', 'N1C', 'N1', 'N2', 'N4', 'N5', 'N6', 'N7', 'N8',
-        'N10', 'N15', 'N16', 'N19', 'NW1', 'NW3', 'NW5', 'NW6', 'NW8', 'E1', 'E2', 'E5', 'E8',
+        // East London
+        'E1', 'E2', 'E3', 'E5', 'E8', 'E9',
+        // East Central
+        'EC1', 'EC2', 'EC3',
+        // North London
+        'N1', 'N1C', 'N1P', 'N2', 'N4', 'N5', 'N6', 'N7', 'N8', 'N10', 'N15', 'N16', 'N19',
+        // North West
+        'NW1', 'NW3', 'NW5', 'NW6', 'NW8',
+        // West London
+        'W1', 'W9',
+        // West Central
+        'WC1', 'WC2',
     ],
 
     'test_centres' => [
@@ -178,7 +188,7 @@ return [
         ],
         [
             'q' => 'Where do you pick pupils up?',
-            'a' => 'Pickup is inside these London postcodes: WC1, EC1, N1, N1C, N2, N4, N5, N6, N7, N8, N10, N15, N16, N19, NW1, NW3, NW5, NW6, NW8, E1, E2, E5 and E8. You can enter the area, such as WC1, or the full postcode.',
+            'a' => 'Pickup is inside these London postcodes: E1, E2, E3, E5, E8, E9, EC1, EC2, EC3, N1, N1C, N1P, N2, N4, N5, N6, N7, N8, N10, N15, N16, N19, NW1, NW3, NW5, NW6, NW8, W1, W9, WC1 and WC2. You can enter the area, such as WC1, or the full postcode.',
         ],
         [
             'q' => 'Which practical test centres do you cover?',
